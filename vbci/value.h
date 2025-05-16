@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ident.h"
+#include "platform.h"
 
 #include <cmath>
 #include <cstring>
@@ -68,7 +69,7 @@ namespace vbci
     Value(int16_t i16);
     Value(int32_t i32);
     Value(int64_t i64);
-    #if defined(__APPLE__) && defined(__MACH__)
+    #ifdef PLATFORM_IS_MACOSX
     Value(long ilong);
     Value(unsigned long ulong);
     #endif
@@ -467,7 +468,7 @@ namespace vbci
         case ValueType::I64:
         case ValueType::U32:
         case ValueType::U64:
-        #if defined(__APPLE__) && defined(__MACH__)
+        #ifdef PLATFORM_IS_MACOSX
         case ValueType::ILong:
         case ValueType::ULong:
         #endif
