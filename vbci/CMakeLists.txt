@@ -28,8 +28,9 @@ else()
     -Wall -Wextra -Werror -Wshadow
     -flto -ffunction-sections -fdata-sections
     )
+  # TODO: Use an if statement to only include the commented out option below
   target_link_options(vbci PRIVATE
-    -rdynamic -flto -Wl,--gc-sections
+    -rdynamic -flto # -Wl,--gc-sections
     )
 endif()
 
